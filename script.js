@@ -1,21 +1,20 @@
-/*const email = document.getElementById('email');
-const password = document.getElementById('password');
-const form = document.getElementById('form');
+const form  = document.getElementsById('form');
+const inputName = document.getElementById('myFormInput1');
+const email = document.getElementById('myFormInput2');
+const task = document.getElementById('myFormInput3');
 const getError = document.getElementById('error');
+console.log(form);
 
-form.addEventListener('submit', (e) => {
-    let messages = [];
+form[i].addEventListener('submit', (e) => {
+    
 
-    if (email) {
-            email.addEventListener('keypress', function validateEmail(email) {
-                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(String(email).toLowerCase());
-            })
-        }
-         
-        else  
-    if (email.value === '' || email.value === null) {   
-        messages.push('email is required');
+    for (var i = 0 ; i < form.length; i++) {
+      
+      let messages = [];
+
+     
+    if (inputName.value === '' || inputName.value === null) {   
+        messages.push('Name is required');
     }
     
     if (messages.length > 0) {
@@ -26,7 +25,9 @@ form.addEventListener('submit', (e) => {
     if (password.value.length <= 4) {
         messages.push('password not strong enough');
     }
-}) */
+   }
+})
+
 
 (function () {
     'use strict'
