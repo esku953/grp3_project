@@ -133,7 +133,7 @@
             </div>
             <div class="col-md-3 position-relative">
               <div class="input-group form-outline">
-                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                <span class="input-group-text" id="validationTooltipUsernamePrepend"></span>
                 <input
                   type="date"
                   class="form-control"
@@ -156,11 +156,25 @@
               <div class="form-outline">
                 <input type="text" class="form-control" id="validationTooltip05" required />
                 <label for="validationTooltip05" class="form-label">Description</label>
-                <div class="invalid-tooltip">Please provide a valid zip.</div>
+                <div class="invalid-tooltip"></div>
               </div>
             </div>
             <div class="col-12 pt-2 text-center">
               <button class="btn btn-primary " type="submit">Submit form</button>
+            </div>
+
+            <div class="form-group">
+              <div>
+                <label for="lunch"><h2>Tasks</h2></label>
+              </div>
+              <label for="lunch"></label>
+              <select id="lunch" name="lunch">
+                <option value="pizza">Task Name</option>
+                <option value="curry">Task Description</option>
+                <option value="salad">Assigned To</option>
+                <option value="ramen">Due date</option>
+                <option value="tacos">Status</option>
+              </select>
             </div>
           </form>
           
