@@ -1,9 +1,13 @@
-const createTaskHtml = (name,description,assignedTo,dueDate,status) => `<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
+  const date = new Date(dueDate);
+        const formattedDate = new Date(`the due date is ${date}`);
+  
+  return `<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
         <div class="card-body">
       <h5 class="card-title">${name}</h5>
       <p class="card-text">${assignedTo}</p>
       <p class="card-text">${description}</p>     
-      <div><span>${dueDate}</span></div>
+      <div><span>${formattedDate}</span></div>
       <br>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,7 +23,7 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status) => `<div cla
       <button class="btn btn-primary" type="submit">Delete</button>
       
     </div>
-  </div>`
+  </div>`}
 
 
 class taskManager {
@@ -41,15 +45,15 @@ class taskManager {
         this.tasks.push(newTask)
     }
     render() {
-        const tasksHtmlList = ['Go shopping','pay rent','do laundry','get groceries'];
-        const date = new Date(dueDate);
-        const formattedDate = new Date(`the due date is ${date}`);
-        
-        console.log(formattedDate.toDateString());
-        
+        const tasksHtmlList = [];
+        //const date = new Date(dueDate);
+        //const formattedDate = new Date(`the due date is ${date}`);
+        const taskHtml = createTaskHtml('Cook Dinner','Take out the trash','Nick','2020-09-20','TODO');
+        //console.log(formattedDate.toDateString());
+        console.log(taskHtml);
         const html = '';
-        tasksHtmlList.forEach(function (tasksHtmlList) {
-            html += '<li>' + tasksHtmlList + '</li>';
+        this.tasks.forEach(function (task) {
+            html += '<li>' + createTaskHtml(task.name, task.description, task.duedate, task.assignedTo, task.status) + '</li>';
         });
         html = '<ul>' + html + '</ul>';
         console.log(html);
