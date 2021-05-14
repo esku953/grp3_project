@@ -15,7 +15,7 @@ const task2 = {
     dueDate: '2020-09-20',
     status: 'TODO'
 };
-const task1 = {
+const task3 = {
     id: 3,
     name: 'Take out the trash',
     description: 'Take out the trash to the front of the house',
@@ -24,7 +24,7 @@ const task1 = {
     status: 'IN PROGRESS'
 };
 
-const task2 = {
+const task4 = {
     id: 4,
     name: 'Cook Dinner',
     description: 'Prepare a heal',
@@ -85,9 +85,9 @@ class taskManager {
         const tasksHtmlList = [];
         
         
-        console.log(formattedDate.toDateString());
+        // console.log(formattedDate.toDateString());
         
-        const html = '';
+        let html = '';
         this.tasks.forEach(function (task) {
             html += '<li>' + createTaskHtml(task.name,task.description,task.assignedTo,task.dueDate,task.status) + '</li>';
         });
