@@ -93,7 +93,7 @@ class taskManager {
         });
         html = '<ul>' + html + '</ul>';
         console.log(html);
-        document.querySelector('#reusable_component').innerHTML = html;
+        document.querySelector('.card-body').innerHTML = html;
 
     }
 
