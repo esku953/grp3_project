@@ -1,52 +1,45 @@
-var tasksArr = [
-  {
-    id: 1,
-    name: 'Take out the trash',
-    description: 'Take out the trash to the front of the house',
-    assignedTo: 'Nick',
-    dueDate: '2020-09-20',
-    status: 'COMPLETED'
-},
-{
-  id: 2,
-  name: 'Cook Dinner',
-  description: 'Prepare a healthy serving of pancakes for the family tonight',
-  assignedTo: 'Nick',
-  dueDate: '2020-09-20',
-  status: 'TODO'
-},
-{
-  id: 3,
-  name: 'Take out the trash',
-  description: 'Take out the trash to the front of the house',
-  assignedTo: 'Nick',
-  dueDate: '2020-09-20',
-  status: 'IN PROGRESS'
-},
-{
-  id: 4,
-  name: 'Cook Dinner',
-  description: 'Prepare a heal',
-  assignedTo: 'Nick',
-  dueDate: '2020-09-20',
-  status: 'TODO'
-}
-];
+// var tasksArr = [
+//   {
+//     id: 1,
+//     name: 'Take out the trash',
+//     description: 'Take out the trash to the front of the house',
+//     assignedTo: 'Nick',
+//     dueDate: '2020-09-20',
+//     status: 'COMPLETED'
+// },
+// {
+//   id: 2,
+//   name: 'Cook Dinner',
+//   description: 'Prepare a healthy serving of pancakes for the family tonight',
+//   assignedTo: 'Nick',
+//   dueDate: '2020-09-20',
+//   status: 'TODO'
+// },
+// {
+//   id: 3,
+//   name: 'Take out the trash',
+//   description: 'Take out the trash to the front of the house',
+//   assignedTo: 'Nick',
+//   dueDate: '2020-09-20',
+//   status: 'IN PROGRESS'
+// },
+// {
+//   id: 4,
+//   name: 'Cook Dinner',
+//   description: 'Prepare a heal',
+//   assignedTo: 'Nick',
+//   dueDate: '2020-09-20',
+//   status: 'TODO'
+// }
+// ];
 
 const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
 
   const date = new Date(dueDate);
         const formattedDate = new Date(`the due date is ${date}`);
-  const doneButton = document.getElementsByClassName("btn btn-secondary");
-  const submitButton = document.getElementsByClassName("btn btn-primary");
+  // const doneButton = document.getElementsByClassName("btn btn-secondary");
+  // const submitButton = document.getElementsByClassName("btn btn-primary");
   return `<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-
-    
-    const date = new Date(dueDate);
-    const formattedDate = new Date(`the due date is ${date}`);
-    
-    return `<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-
         <div class="card-body">
       <h5 class="card-title">${name}</h5>
       <p class="card-text">${assignedTo}</p>
@@ -56,7 +49,7 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
       
       <br>
       <button class="btn btn-primary" type="submit">Delete</button>
-      
+
     </div>
   </div>
   <div class="done-button">
