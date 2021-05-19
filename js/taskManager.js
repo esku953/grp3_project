@@ -1,38 +1,37 @@
-const task1 = {
+var tasksArr = [
+  {
     id: 1,
     name: 'Take out the trash',
     description: 'Take out the trash to the front of the house',
     assignedTo: 'Nick',
     dueDate: '2020-09-20',
     status: 'COMPLETED'
-};
-
-const task2 = {
-    id: 2,
-    name: 'Cook Dinner',
-    description: 'Prepare a healthy serving of pancakes for the family tonight',
-    assignedTo: 'Nick',
-    dueDate: '2020-09-20',
-    status: 'TODO'
-};
-const task3 = {
-    id: 3,
-    name: 'Take out the trash',
-    description: 'Take out the trash to the front of the house',
-    assignedTo: 'Nick',
-    dueDate: '2020-09-20',
-    status: 'IN PROGRESS'
-};
-
-const task4 = {
-    id: 4,
-    name: 'Cook Dinner',
-    description: 'Prepare a heal',
-    assignedTo: 'Nick',
-    dueDate: '2020-09-20',
-    status: 'TODO'
-};
-
+},
+{
+  id: 2,
+  name: 'Cook Dinner',
+  description: 'Prepare a healthy serving of pancakes for the family tonight',
+  assignedTo: 'Nick',
+  dueDate: '2020-09-20',
+  status: 'TODO'
+},
+{
+  id: 3,
+  name: 'Take out the trash',
+  description: 'Take out the trash to the front of the house',
+  assignedTo: 'Nick',
+  dueDate: '2020-09-20',
+  status: 'IN PROGRESS'
+},
+{
+  id: 4,
+  name: 'Cook Dinner',
+  description: 'Prepare a heal',
+  assignedTo: 'Nick',
+  dueDate: '2020-09-20',
+  status: 'TODO'
+}
+];
 
 const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
     
@@ -60,7 +59,11 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
       <button class="btn btn-primary" type="submit">Delete</button>
       
     </div>
-  </div>`}
+  </div>
+  <div class="done-button">
+  <button type="button" class="btn btn-primary btn-sm">Mark As Done</button>
+  </div>
+  `}
 
 
 class taskManager {
@@ -69,7 +72,7 @@ class taskManager {
             this.currentId = 0
             
     }
-      addTask ({name,description,assignedTo,dueDate,status})  {
+      addTask (name,description,assignedTo,dueDate,status)  {
         this.currentId++
         const newTask = {
              name,
@@ -97,13 +100,30 @@ class taskManager {
 
     }
 
+    save() {
+
+      const tasksJason = JSON.stringify(tasksArr);
+      console.log(tasksJason);
+      localStorage.setItem('dueDate', '2020-09-20');
+      localStorage.setItem('currentId', '0');
+      console.log(localStorage);
+    }
+
+    load() {
+      const tasksJason = localStorage.getItem('dueDate', '2020-09-20');
+      this.tasks = JSON.parse(tasksJason);
+      const currentId = localStorage.getItem('currentId','0');
+      this.tasks = JSON.parse(currentId);
+    }
+
+  removeTask() {
+    var span = document.createElement('span');
+    span.innerHTML = '<button id="but' + inc +'" onclick="callJavascriptFunction()" />';
+  }
+
     
   }
   
   console.log(taskManager);
 
-  
-  
-// const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
-        // tasksHtmlList.push(taskHtml);
-        
+
