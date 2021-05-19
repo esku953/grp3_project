@@ -1,7 +1,8 @@
 const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
   const date = new Date(dueDate);
         const formattedDate = new Date(`the due date is ${date}`);
-  
+  const doneButton = document.getElementsByClassName("btn btn-secondary");
+  const submitButton = document.getElementsByClassName("btn btn-primary");
   return `<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
         <div class="card-body">
       <h5 class="card-title">${name}</h5>
@@ -9,27 +10,20 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
       <p class="card-text">${description}</p>     
       <div><span>${formattedDate}</span></div>
       <br>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ${status}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Done</button>
-          <button class="dropdown-item" type="button">Pending</button>
-          <button class="dropdown-item" type="button">In Progress</button>
-        </div>
-      </div>
+      
       <br>
       <button class="btn btn-primary" type="submit">Delete</button>
       
     </div>
   </div>`}
 
-
+  
 class taskManager {
     constructor(tasks) {
             this.tasks = []
             this.currentId = 0
+            this.taskCard = document.getElementsById("taskCard");
+
             
     }
       addTask ({name,description,assignedTo,dueDate,status})  {
@@ -72,3 +66,10 @@ class taskManager {
 // const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
         // tasksHtmlList.push(taskHtml);
         
+
+        // <div class="doneButton">
+      // <button type="button" class="btn btn-secondary">Mark As Done</button>
+      //     ${status}
+      //   </button>
+        
+      //</div>

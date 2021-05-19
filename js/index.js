@@ -39,22 +39,35 @@ let toDoContainer = document.getElementById('toDoContainer');
 
 let inputField = document.getElementById('inputField');
 
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-    console.log(e);
-    var paragraph = document.createElement('p')
-    paragraph.classList.add('paragraph-styling');
-    paragraph.innerText = inputField.value;
-    toDoContainer.appendChild(paragraph);
-    if (validFormFieldInput())
-{
-    ourTaskManager.addTask({
-        name: newTaskNameInput.value,
-        // ...
-    })
-}
-console.log();
-})
+
+
+// form.addEventListener('submit', function(e){
+//     e.preventDefault();
+//     console.log(e);
+//     var paragraph = document.createElement('p')
+//     paragraph.classList.add('paragraph-styling');
+//     paragraph.innerText = inputField.value;
+//     toDoContainer.appendChild(paragraph);
+//     if (validFormFieldInput())
+//     inputField.value = "";
+// {
+//     ourTaskManager.addTask({
+//         name: newTaskNameInput.value,
+//         // ...
+//     })
+// }
+// console.log();
+// })
 
 // cleo's code
 //<button class = "btn btn-primary" type ="submit">Submit Form</button>
+taskListHtml.addEventListener('click', (event) => { // "event" here is the event parameter
+    let taskValue = this.taskCard.value;
+    
+    });
+taskCard.addEventListener('click', (event) => { // "event" here is the event parameter
+taskCard.addEvent
+
+});
+
+taskListHtml.
