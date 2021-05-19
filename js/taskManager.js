@@ -35,6 +35,7 @@ class taskManager {
       addTask ({name,description,assignedTo,dueDate,status})  {
         this.currentId++
         const newTask = {
+              id:this.currentId,
              name,
              description,
              assignedTo,
@@ -51,13 +52,13 @@ class taskManager {
         const taskHtml = createTaskHtml('Cook Dinner','Take out the trash','Nick','2020-09-20','TODO');
         //console.log(formattedDate.toDateString());
         console.log(taskHtml);
-        const html = '';
+        let html = '';
         this.tasks.forEach(function (task) {
-            html += '<li>' + createTaskHtml(task.name, task.description, task.duedate, task.assignedTo, task.status) + '</li>';
+           html += '<li>' + createTaskHtml('task.name', 'task.description', 'task.duedate', 'task.assignedTo', 'task.status') + '</li>';
         });
         html = '<ul>' + html + '</ul>';
         console.log(html);
-        document.querySelector('#reusable_component').innerHTML = html;
+        document.querySelector('#taskCard').innerHTML = html;
 
     }
 

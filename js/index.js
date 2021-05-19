@@ -1,24 +1,60 @@
 const ourTaskManager = new taskManager();
 
-ourTaskManager.addTask('Cook Dinner','Take out the trash','Nick','2020-09-20','TODO');
-const submit.addEventListner('click');
+// ourTaskManager.addTask('Cook Dinner','Take out the trash','Nick','2020-09-20','TODO');
+// const a = addEventListener('submit', e => {
+
+//     alert('Tasks are Welcome');
+// });
 
 console.log(ourTaskManager.tasks);
 const taskHtml = createTaskHtml('Cook Dinner','Take out the trash','Nick','2020-09-20','TODO');
 console.log(taskHtml);
 
+
 ourTaskManager.render();
 
-let buttonToDo = document.getElementById(buttonToDo);
+const newTaskNameInput = document.querySelector('#validationTooltip01');
+// const newTaskNameInput = document.querySelector('#validationTooltip02');
+// const newTaskNameInput = document.querySelector('#validationTooltip03');
+// const newTaskNameInput = document.querySelector('#validationTooltip04');
+// const newTaskNameInput = document.querySelector('#validationTooltip05');
+const validFormFieldInput = (data) =>{
+    
+    console.log(newTaskNameInput);
+ const name = newTaskNameInput.value;
+ if (name == null || name === '') 
+ 
+ {alert('Please input name.')
+     return false;}
+ else {
+     {return true;}
+ }
 
-let toDoContainer = document.getElementById(toDoContainer);
 
-let inputField = document.getElementById(inputField);
+}
+//Cleo's code
+let form = document.getElementById('taskForm');
 
-buttonToDo.addEventListener('click', function(){
+let toDoContainer = document.getElementById('toDoContainer');
+
+let inputField = document.getElementById('inputField');
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    console.log(e);
     var paragraph = document.createElement('p')
     paragraph.classList.add('paragraph-styling');
     paragraph.innerText = inputField.value;
-    toDoContainer.appendChild('paragraph');
+    toDoContainer.appendChild(paragraph);
+    if (validFormFieldInput())
+{
+    ourTaskManager.addTask({
+        name: newTaskNameInput.value,
+        // ...
+    })
+}
+console.log();
 })
-//<button class="btn btn-primary " type="submit">Submit form</button
+
+// cleo's code
+//<button class = "btn btn-primary" type ="submit">Submit Form</button>
