@@ -35,8 +35,8 @@
 
 //const { oldlace } = require("color-name");
 
-const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
-<div class="deleteButton"><button type="button" class="btn btn-dark">Delete</button></div>
+const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
+//<div class="deleteButton"><button type="button" class="btn btn-dark">Delete</button></div>
   const date = new Date(dueDate);
         const formattedDate = new Date(`the due date is ${date}`);
   // const doneButton = document.getElementsByClassName("btn btn-secondary");
@@ -47,6 +47,7 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
       <p class="card-text">${assignedTo}</p>
       <p class="card-text">${description}</p>     
       <div><span>${formattedDate}</span></div>
+      id = data-task-id
       <br>
       
       <br>
@@ -66,7 +67,7 @@ class taskManager {
             this.currentId = 0
             this.taskCard = document.getElementsById("taskCard");
             this.deleteTasks = document.createElement('deleteTasks');
-const deleteTasks(taskId) = [];
+  
             
     }
       addTask (name,description,assignedTo,dueDate,status)  {
@@ -133,7 +134,19 @@ new_data = " " + document.getElementsById(input).value;
     var span = document.createElement('span');
     span.innerHTML = '<button id="but' + inc +'" onclick="callJavascriptFunction()" />';
   }
+  
+  deleteTasks(taskId) {
+    const newTask =[''];
+    while (task = newTask);
+    if (task.id!== (taskId)) 
+    then{task.id.push}
+     [newTask]
+      taskId! === task.id 
+    
+    while{
 
+    }
+  };
     
   }
   
@@ -142,16 +155,16 @@ new_data = " " + document.getElementsById(input).value;
 
   
   
-// const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
-        // tasksHtmlList.push(taskHtml);
+const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
+        tasksHtmlList.push(taskHtml);
         
 
-        // <div class="doneButton">
-      // <button type="button" class="btn btn-secondary">Mark As Done</button>
-      //     ${status}
-      //   </button>
+        <div class="doneButton">
+      <button type="button" class="btn btn-secondary">Mark As Done</button>
+          ${status}
+        </button>
         
-      //</div>
+      </div>
 
 // cleo doing stuff
 //       let addToDoButton = document.getElementById('addToDo');
