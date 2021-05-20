@@ -35,13 +35,12 @@
 
 //const { oldlace } = require("color-name");
 
-const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
-<div class="deleteButton"><button type="button" class="btn btn-dark">Delete</button></div>
+const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
   const date = new Date(dueDate);
         const formattedDate = new Date(`the due date is ${date}`);
   // const doneButton = document.getElementsByClassName("btn btn-secondary");
   // const submitButton = document.getElementsByClassName("btn btn-primary");
-  return `<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+  return `<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;" data-task-id="${id}">
         <div class="card-body">
       <h5 class="card-title">${name}</h5>
       <p class="card-text">${assignedTo}</p>
@@ -50,23 +49,24 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
       <br>
       
       <br>
-      <button class="btn btn-primary" type="submit">Delete</button>
+      
 
     </div>
   </div>
   <div class="done-button">
+  <button class="btn btn-primary" type="submit">Delete</button>
   <button type="button" class="btn btn-primary btn-sm">Mark As Done</button>
   </div>
   `}
 
   //trying to delete tasks button
-class taskManager {
+class TaskManager {
     constructor(tasks) {
             this.tasks = []
             this.currentId = 0
-            this.taskCard = document.getElementsById("taskCard");
+            this.taskCard = document.getElementById("taskCard");
             this.deleteTasks = document.createElement('deleteTasks');
-const deleteTasks(taskId) = [];
+// const deleteTasks(taskId) = [];
             
     }
       addTask (name,description,assignedTo,dueDate,status)  {
@@ -82,33 +82,39 @@ const deleteTasks(taskId) = [];
         }
         this.tasks.push(newTask)
     }
+    getTaskById(taskId){
+      let foundTask;
+      this.tasks.forEach(function (task){
+        if (task.id == taskId){
+          foundTask = task;
+        }
+      })
+      return foundTask
+    }
+    
+
+
     render() {
         const tasksHtmlList = [];
 
         //const date = new Date(dueDate);
         //const formattedDate = new Date(`the due date is ${date}`);
-        const taskHtml = createTaskHtml('Cook Dinner','Take out the trash','Nick','2020-09-20','TODO');
+        // const taskHtml = createTaskHtml('Cook Dinner','Take out the trash','Nick','2020-09-20','TODO',1);
         //console.log(formattedDate.toDateString());
-        console.log(taskHtml);
+      
         let html = '';
         this.tasks.forEach(function (task) {
-           html += '<li>' + createTaskHtml('task.name', 'task.description', 'task.duedate', 'task.assignedTo', 'task.status') + '</li>';
+           html += '<li>' + createTaskHtml(task.name, task.description, task.duedate, task.assignedTo, task.status, task.id) + '</li>';
         });
         html = '<ul>' + html + '</ul>';
         console.log(html);
-        document.querySelector('#taskCard').innerHTML = html;
+        document.querySelector('#taskList').innerHTML = html;
 
         
         
         // console.log(formattedDate.toDateString());
         
-        let html = '';
-        this.tasks.forEach(function (task) {
-            html += '<li>' + createTaskHtml(task.name,task.description,task.assignedTo,task.dueDate,task.status) + '</li>';
-        });
-        html = '<ul>' + html + '</ul>';
-        console.log(html);
-        document.querySelector('.card-body').innerHTML = html;
+      
 
     }
 
@@ -137,13 +143,12 @@ new_data = " " + document.getElementsById(input).value;
     
   }
   
-  console.log(taskManager);
+  // console.log(taskManager);
 
 
   
-  
-// const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
-        // tasksHtmlList.push(taskHtml);
+  // const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
+  //       tasksHtmlList.push(taskHtml);
         
 
         // <div class="doneButton">
