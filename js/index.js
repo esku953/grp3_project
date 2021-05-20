@@ -70,8 +70,7 @@ let inputField = document.getElementById('inputField');
 // console.log();
 // })
 
-// cleo's code
-//<button class = "btn btn-primary" type ="submit">Submit Form</button>
+
 taskListHtml.addEventListener('click', (event) => { // "event" here is the event parameter
     let taskValue = this.taskCard.value;
     
@@ -87,6 +86,9 @@ ourTaskManager.save();
 ourTaskManager.load();
 
 
+
+// cleo's code
+//<button class = "btn btn-primary" type ="submit">Submit Form</button>
 
 
 

@@ -33,8 +33,10 @@
 // }
 // ];
 
-const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
+//const { oldlace } = require("color-name");
 
+const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
+<div class="deleteButton"><button type="button" class="btn btn-dark">Delete</button></div>
   const date = new Date(dueDate);
         const formattedDate = new Date(`the due date is ${date}`);
   // const doneButton = document.getElementsByClassName("btn btn-secondary");
@@ -57,13 +59,14 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status) => {
   </div>
   `}
 
-  
+  //trying to delete tasks button
 class taskManager {
     constructor(tasks) {
             this.tasks = []
             this.currentId = 0
             this.taskCard = document.getElementsById("taskCard");
-
+            this.deleteTasks = document.createElement('deleteTasks');
+const deleteTasks(taskId) = [];
             
     }
       addTask (name,description,assignedTo,dueDate,status)  {
@@ -110,8 +113,8 @@ class taskManager {
     }
 
     save() {
-
-
+// get data from input box
+new_data = " " + document.getElementsById(input).value;
       const tasksJason = JSON.stringify(tasksArr);
       console.log(tasksJason);
       localStorage.setItem('dueDate', '2020-09-20');
@@ -150,5 +153,49 @@ class taskManager {
         
       //</div>
 
+// cleo doing stuff
+//       let addToDoButton = document.getElementById('addToDo');
+// let toDoContainer = document.getElementById('toDoContainer');
+// let inputField = document.getElementById('inputField');
+
+// addToDoButton.addEventListener('click', function(){
+//     var paragraph = document.createElement('p');
+//     paragraph.classList.add('paragraph-styling');
+//     paragraph.innerText = inputField.value;
+//     toDoContainer.appendChild(paragraph);
+//     inputField.value = "";
+//     paragraph.addEventListener('click', function(){
+//         
+//     paragraph.addEventListener('dblclick', function(){
+//         toDoContainer.removeChild(paragraph);
+//     })
+// })
+// add local storage Cleo
+function save (){
+  //data from input box
+  var new_data = document.getElementById('input').value;
+  // if there is nothing saved at the start then save an empty array
+if (localStorage.getItem('data') == null){
+  localStorage.setItem('data', '[]' );
+
+
+}
+
+// get old data and stop it to the new data
+var old_data = JSON.parse(localStorage.getItem('data'));
+old_data.push(new_data);
+
+localStorage.setItem('data', JSON.stingify(old_data) );
+
+}
+
+function view (){
+//if there is data then continue
+  if(localStorage.getItem('data') !== null) {
+Document.getElementsById('output').innerHTML = JSON.parse(localStorage.getItem('data'));
+    
+  }
+  
+}
 
 
