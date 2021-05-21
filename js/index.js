@@ -102,6 +102,10 @@ form.addEventListener('submit', function(e){
     if (validFormFieldInput1()&& validFormFieldInput2() && validFormFieldInput3()){
         ourTaskManager.addTask({
             name: newTaskNameInput.value,
+            assignedTo: newTaskAssignedToInput.value,
+            description: newTaskDescriptionInput.value,
+
+
     })
 }
 // inputField.value = " ";
@@ -114,45 +118,29 @@ console.log();
 })
 const taskListEl = document.querySelector('#taskList')
 
+taskListEl.addEventListener("click", function(e) {
+if(e.target.classList.contains('doneButton')){
+    const parentTask = e.target.parentElement.parentElement;
+    console.log(parentTask.dataset.taskId);
+    const task = newTaskManager.getTaskById(parentTask.dataset.taskId);
+    }
+
 // "event" here is the event parameter
     // let taskValue = this.taskCard.value;
-    taskListEl.addEventListener("click", function(e) {
-        const parentTask = document.getElementById("taskList").parentNode.nodeName;
-        if (e.target !== element && !element.contains(e.target)) {
-          element.parentNode.removeChild(element);
-        }
-      });
+    // taskListEl.addEventListener("click", function(e) {
+    //     const parentTask = document.getElementById("taskList").parentNode.nodeName;
+        // if (e.target !== element && !element.contains(e.target)) {
+        //   element.parentNode.removeChild(element);
+        // }
+    //   });
     
       console.log(e);
 
 taskCard.addEventListener('click', (e) => { // "event" here is the event parameter
 taskCard.addEvent
-
 });
 
 
 
 ourTaskManager.save();
 ourTaskManager.load();
-
-
-
-
-// cleo's code
-//<button class = "btn btn-primary" type ="submit">Submit Form</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -49,7 +49,6 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
       <div><span>${formattedDate}</span></div>
       <button type="button" class="btn btn-secondary doneButton">Mark As Done</button>
           ${status}
-        </button>
         
       </div>
       
