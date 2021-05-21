@@ -47,19 +47,19 @@ const validFormFieldInput2 = (data) => {
 }
 
 const newTaskNameInput5 = document.querySelector('#validationTooltip05');
-const validFormFieldInput3 = (data) =>{
+const validFormFieldInput5 = (data) =>{
     console.log(newTaskNameInput5);
  const description = newTaskNameInput5.value;
  if (description == null || description === '') 
- {alert('Please input name.')
+ {alert('Please input task.')
      return false;}
  else {
      {return true;}
  }
 }
 
-const newTaskNameInput4 = document.querySelector('#validationTooltip04');
-const validFormFieldInput4 = (data) =>{
+const newTaskNameInput4 = document.querySelector('#validationTooltip03');
+const validFormFieldInput3 = (data) =>{
     console.log(newTaskNameInput4);
  const assignedTo = newTaskNameInput4.value;
  if (assignedTo == null || assignedTo === '') 
@@ -100,7 +100,7 @@ form.addEventListener('submit', function(e){
     // paragraph.innerText = inputField.value;
     // toDoContainer.appendChild(paragraph);
     if (validFormFieldInput1()&& validFormFieldInput2() && validFormFieldInput3()){
-        ourTaskManager.addTask(newTaskNameInput1.value,newTaskNameInput5.value,newTaskAssignedToInput4.value)
+        ourTaskManager.addTask(newTaskNameInput1.value,newTaskNameInput5.value,newTaskNameInput4.value)
     }
     console.log();
 })
