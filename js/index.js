@@ -10,8 +10,6 @@ const ourTaskManager = new TaskManager();
 ourTaskManager.addTask('Cook Dinner','Take out the trash','Nick','2020-09-20','TODO', );
 
 
-console.log(ourTaskManager.tasks);
-
 // const taskHtml = createTaskHtml();
 
 let tasksHtmlList = ['Go shopping','pay rent','do laundry','get groceries'];
@@ -97,17 +95,16 @@ let inputField = document.getElementById('inputField');
 form.addEventListener('submit', function(e){
     e.preventDefault();
     console.log(e);
-    var paragraph = document.createElement('p')
-    paragraph.classList.add('paragraph-styling');
-    paragraph.innerText = inputField.value;
-    toDoContainer.appendChild(paragraph);
+    // var paragraph = document.createElement('p')
+    // paragraph.classList.add('paragraph-styling');
+    // paragraph.innerText = inputField.value;
+    // toDoContainer.appendChild(paragraph);
     if (validFormFieldInput1()&& validFormFieldInput2() && validFormFieldInput3()){
         ourTaskManager.addTask({
             name: newTaskNameInput.value,
     })
 }
-
-    inputField.value = "";
+// inputField.value = " ";
 
     
         
@@ -117,30 +114,18 @@ console.log();
 })
 const taskListEl = document.querySelector('#taskList')
 
-taskListEl.addEventListener('click', (e) => { // "event" here is the event parameter
+// "event" here is the event parameter
     // let taskValue = this.taskCard.value;
-    console.log(e);
-    });
+    taskListEl.addEventListener("click", function(e) {
+        const parentTask = document.getElementById("taskList").parentNode.nodeName;
+        if (e.target !== element && !element.contains(e.target)) {
+          element.parentNode.removeChild(element);
+        }
+      });
+    
+      console.log(e);
 
-    // $('#list').on('click', '.complete-button', function(event) {
-    //     var item = $(event.target).parent()
-    //     var isItemCompleted = item.hasClass('completed')
-    //     var itemId = item.attr('data-id')
-    //     var updateRequest = $.ajax({
-    //       type: 'PUT',
-    //       url: "https://listalous.herokuapp.com/lists/YOUR-LIST-NAME-HERE/items/" + itemId,
-    //       data: { completed: !isItemCompleted }
-    //     })
-    //     updateRequest.done(function(itemData) {
-    //       if (itemData.completed) {
-    //         item.addClass('completed')
-    //       } else {
-    //         item.removeClass('completed')
-    //       }
-    //     })
-    //   })
-
-taskCard.addEventListener('click', (event) => { // "event" here is the event parameter
+taskCard.addEventListener('click', (e) => { // "event" here is the event parameter
 taskCard.addEvent
 
 });

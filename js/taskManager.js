@@ -36,10 +36,7 @@
 //const { oldlace } = require("color-name");
 
 const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
-<<<<<<< HEAD
-=======
 //<div class="deleteButton"><button type="button" class="btn btn-dark">Delete</button></div>
->>>>>>> ffa6f2682d7c6c2ad809f0718a87239b7e4f6215
   const date = new Date(dueDate);
         const formattedDate = new Date(`the due date is ${date}`);
   // const doneButton = document.getElementsByClassName("btn btn-secondary");
@@ -50,19 +47,16 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
       <p class="card-text">${assignedTo}</p>
       <p class="card-text">${description}</p>     
       <div><span>${formattedDate}</span></div>
-      id = data-task-id
-      <br>
+      <button type="button" class="btn btn-secondary doneButton">Mark As Done</button>
+          ${status}
+        </button>
+        
+      </div>
       
+      </div>
       <br>
-      
-
-    </div>
-  </div>
-  <div class="done-button">
-  <button class="btn btn-primary" type="submit">Delete</button>
-  <button type="button" class="btn btn-primary btn-sm">Mark As Done</button>
-  </div>
-  `}
+      <br>
+        `}
 
   //trying to delete tasks button
 class TaskManager {
@@ -71,13 +65,9 @@ class TaskManager {
             this.currentId = 0
             this.taskCard = document.getElementById("taskCard");
             this.deleteTasks = document.createElement('deleteTasks');
-<<<<<<< HEAD
+
 // const deleteTasks(taskId) = [];
-=======
-  
->>>>>>> ffa6f2682d7c6c2ad809f0718a87239b7e4f6215
-            
-    }
+            }
       addTask (name,description,assignedTo,dueDate,status)  {
         this.currentId++
         const newTask = {
@@ -129,19 +119,25 @@ class TaskManager {
 
     save() {
 // get data from input box
-new_data = " " + document.getElementsById(input).value;
-      const tasksJason = JSON.stringify(tasksArr);
+// new_data = " " + document.getElementsById(input).value;
+      const tasksJason = JSON.stringify(this.tasks);
       console.log(tasksJason);
-      localStorage.setItem('dueDate', '2020-09-20');
-      localStorage.setItem('currentId', '0');
+      localStorage.setItem('tasks', tasksJason);
+      localStorage.setItem('currentId', this.currentId);
       console.log(localStorage);
     }
 
     load() {
-      const tasksJason = localStorage.getItem('dueDate', '2020-09-20');
-      this.tasks = JSON.parse(tasksJason);
-      const currentId = localStorage.getItem('currentId','0');
-      this.tasks = JSON.parse(currentId);
+      const tasksJason = localStorage.getItem('tasks');
+      if(tasksJason){
+        this.tasks = JSON.parse(tasksJason);
+      }
+      
+      const currentId = localStorage.getItem('currentId');
+      if (currentId){
+        this.currentId = Number(currentId);
+      }
+      
     }
 
   removeTask() {
@@ -149,41 +145,36 @@ new_data = " " + document.getElementsById(input).value;
     span.innerHTML = '<button id="but' + inc +'" onclick="callJavascriptFunction()" />';
   }
   
-  deleteTasks(taskId) {
-    const newTask =[''];
-    while (task = newTask);
-    if (task.id!== (taskId)) 
-    then{task.id.push}
-     [newTask]
-      taskId! === task.id 
+  // deleteTasks(taskId) {
+  //   const newTask =[''];
+  //   while (task = newTask);
+  //   if (task.id!== (taskId)) 
+  //   .then{task.id.push}
+  //    [newTask]
+  //     taskId! === task.id 
     
-    while{
+  //   while{
 
-    }
-  };
+  //   }
+  // };
     
-  }
+  // }
   
   // console.log(taskManager);
 
 
   
-<<<<<<< HEAD
+
   // const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
   //       tasksHtmlList.push(taskHtml);
-=======
+
   
-const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
-        tasksHtmlList.push(taskHtml);
->>>>>>> ffa6f2682d7c6c2ad809f0718a87239b7e4f6215
+// const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,status})
+//         tasksHtmlList.push(taskHtml);
+
         
 
-        <div class="doneButton">
-      <button type="button" class="btn btn-secondary">Mark As Done</button>
-          ${status}
-        </button>
         
-      </div>
 
 // cleo doing stuff
 //       let addToDoButton = document.getElementById('addToDo');
@@ -203,31 +194,27 @@ const taskHtml = createTaskHtml({name,description,assignedTo,formattedDate,statu
 //     })
 // })
 // add local storage Cleo
-function save (){
-  //data from input box
-  var new_data = document.getElementById('input').value;
-  // if there is nothing saved at the start then save an empty array
-if (localStorage.getItem('data') == null){
-  localStorage.setItem('data', '[]' );
+// save() {
+//   //data from input box
+//   var new_data = document.getElementById('input').value;
+//   // if there is nothing saved at the start then save an empty array
+// if (localStorage.getItem('data') == null){
+//   localStorage.setItem('data', '[]' );
 
 
-}
+// }
 
-// get old data and stop it to the new data
-var old_data = JSON.parse(localStorage.getItem('data'));
-old_data.push(new_data);
+// // get old data and stores it to the new data
+// const oldData = JSON.parse(localStorage.getItem('data'));
+// oldData.push(newData);
 
-localStorage.setItem('data', JSON.stingify(old_data) );
+// localStorage.setItem('data', JSON.stingify(oldData) );
 
-}
-
-function view (){
-//if there is data then continue
-  if(localStorage.getItem('data') !== null) {
-Document.getElementsById('output').innerHTML = JSON.parse(localStorage.getItem('data'));
+// view () {
+// //if there is data then continue
+//   if(localStorage.getItem('data') !== null) {
+// Document.getElementsById('output').innerHTML = JSON.parse(localStorage.getItem('data'));
     
-  }
-  
+//   }
+// }
 }
-
-
