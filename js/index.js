@@ -100,14 +100,9 @@ form.addEventListener('submit', function(e){
     // paragraph.innerText = inputField.value;
     // toDoContainer.appendChild(paragraph);
     if (validFormFieldInput1()&& validFormFieldInput2() && validFormFieldInput3()){
-        ourTaskManager.addTask({
-            name: newTaskNameInput.value,
-            assignedTo: newTaskAssignedToInput.value,
-            description: newTaskDescriptionInput.value,
+        ourTaskManager.addTask(newTaskNameInput.value,newTaskDescriptionInput.value,newTaskAssignedToInput.value)
+    }
 
-
-    })
-}
 // inputField.value = " ";
 
     
@@ -123,6 +118,7 @@ if(e.target.classList.contains('doneButton')){
     const parentTask = e.target.parentElement.parentElement;
     console.log(parentTask.dataset.taskId);
     const task = newTaskManager.getTaskById(parentTask.dataset.taskId);
+    console.log(task);
     }
 
 // "event" here is the event parameter
@@ -136,8 +132,8 @@ if(e.target.classList.contains('doneButton')){
     
       console.log(e);
 
-taskCard.addEventListener('click', (e) => { // "event" here is the event parameter
-taskCard.addEvent
+// taskCard.addEventListener('click', (e) => { // "event" here is the event parameter
+// taskCard.addEvent
 });
 
 
