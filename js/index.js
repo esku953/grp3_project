@@ -46,11 +46,11 @@ const validFormFieldInput2 = (data) => {
  }
 }
 
-const newTaskNameInput3 = document.querySelector('#validationTooltip03');
+const newTaskNameInput5 = document.querySelector('#validationTooltip05');
 const validFormFieldInput3 = (data) =>{
-    console.log(newTaskNameInput3);
- const assignedTo = newTaskNameInput3.value;
- if (assignedTo == null || assignedTo === '') 
+    console.log(newTaskNameInput5);
+ const description = newTaskNameInput5.value;
+ if (description == null || description === '') 
  {alert('Please input name.')
      return false;}
  else {
@@ -70,17 +70,17 @@ const validFormFieldInput4 = (data) =>{
  }
 }
 
-const newTaskNameInput5 = document.querySelector('#validationTooltip05');
-const validFormFieldInput5 = (data) =>{
-    console.log(newTaskNameInput5);
- const assignedTo = newTaskNameInput5.value;
- if (assignedTo == null || assignedTo === '') 
- {alert('Please input name.')
-     return false;}
- else {
-     {return true;}
- }
-}
+// const newTaskNameInput5 = document.querySelector('#validationTooltip05');
+// const validFormFieldInput5 = (data) =>{
+//     console.log(newTaskNameInput5);
+//  const assignedTo = newTaskNameInput5.value;
+//  if (assignedTo == null || assignedTo === '') 
+//  {alert('Please input name.')
+//      return false;}
+//  else {
+//      {return true;}
+//  }
+// }
 
 
 //Cleo's code
@@ -100,17 +100,17 @@ form.addEventListener('submit', function(e){
     // paragraph.innerText = inputField.value;
     // toDoContainer.appendChild(paragraph);
     if (validFormFieldInput1()&& validFormFieldInput2() && validFormFieldInput3()){
-        ourTaskManager.addTask(newTaskNameInput.value,newTaskDescriptionInput.value,newTaskAssignedToInput.value)
+        ourTaskManager.addTask(newTaskNameInput1.value,newTaskNameInput5.value,newTaskAssignedToInput4.value)
     }
-
+    console.log();
+})
 // inputField.value = " ";
 
     
         
     
 
-console.log();
-})
+
 const taskListEl = document.querySelector('#taskList')
 
 taskListEl.addEventListener("click", function(e) {
